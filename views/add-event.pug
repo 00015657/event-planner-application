@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title Add New Event
+    link(rel="stylesheet", href="/styles/style.css")
+  body
+    .container
+      h1 Add New Event
+      form.form(action="/events" method="post")
+        .form-group
+          label(for="title") Title:
+          input(type="text" id="title" name="title" required)
+        .form-group
+          label(for="description") Description:
+          textarea(id="description" name="description" required)
+        .form-group
+          label(for="date") Date:
+          input(type="date" id="date" name="date" required)
+        button.btn(type="submit") Submit
+      a.btn.back(href='/') Back to Events

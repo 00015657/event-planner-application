@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    title Event Planner
+    link(rel="stylesheet", href="/styles/style.css")
+  body
+    header
+      h1 Event Planner
+      nav
+        a(href='/add-event').btn Add New Event
+    main
+      if events.length
+        each event in events
+          .event
+            h2.event-title= event.title
+            p.event-description= event.description
+            a(href=`/events/${event.id}`).btn.details Details
+      else
+        p No events found.
