@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    title= `${event.title} Details`
+    link(rel="stylesheet", href="/styles/style.css")
+  body
+    .container.detail-page
+      h1.detail-title= event.title
+      .detail-info
+        h2 Detail Information
+        .detail-row
+          strong Date: 
+          span= event.date
+        .detail-row
+          strong Description: 
+          span= event.description
+      a.btn.back(href='/') ← Back to Events

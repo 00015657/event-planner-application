@@ -15,5 +15,8 @@ html
             h2.event-title= event.title
             p.event-description= event.description
             a(href=`/events/${event.id}`).btn.details Details
+            // Add delete button
+            form.delete-form(action=`/delete-event/${event.id}` method="POST")
+              button.btn.delete(type="submit") Delete
       else
         p No events found.

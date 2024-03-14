@@ -55,3 +55,25 @@ app.post("/delete-event/:id", (req, res) => {
 app.listen(port, () => {
   console.log(`Event app listening at http://localhost:${port}`);
 });
+
+// Route to show the details of an event
+app.get("/events/:id", (req, res) => {
+  const { id } = req.params;
+  const event = events.find((event) => event.id.toString() === id);
+
+  if (event) {
+    res.render("details", { event: event });
+  } else {
+    res.status(404).send("Event not found");
+  }
+});
+
+// Include necessary middleware to parse request bodies
+app.use(express.urlencoded({ extended: true }));
+
+// Add a route to handle the deletion of an event
+app.post("/delete-event/:id", (req, res) => {
+  const eventId = parseInt(req.params.id, 10);
+  events = events.filter((event) => event.id !== eventId);
+  res.redirect("/");
+});
